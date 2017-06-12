@@ -5,6 +5,7 @@
   "dependencies": {
     "fixed-data-table": "^0.6.4",
     "react": "^15.5.4",
+    "react-bootstrap-table": "^3.4.0",
     "react-dom": "^15.5.4",
     "reactable": "^0.14.1"
   },

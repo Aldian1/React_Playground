@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Table, Tr, Td } from './reactable';
+//import { Table, Tr, Td } from 'reactable';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import './react-bootstrap-table.css';
 
-const someData = [
-  {
-    Ref: "JR18746",
-    Status: "Online",
-    Date: "11/05/2017",
-    Name: "Harry",
-    Start: "10:00AM",
-    Hours: "4",
-    Location: "E11BZ",
-    Rating: "5",
-    key: 1
-  },
+const someData = [{
+  Ref: "JR18746",
+  Status: "Online",
+  Date: "11/05/2017",
+  Name: "Harry",
+  Start: "10:00AM",
+  Hours: "4",
+  Location: "E11BZ",
+  Rating: "5",
+  key: 1
+},
   {
     Ref: "JR18747",
     Status: "Offline",
@@ -45,48 +46,23 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="Container">
-        <div className="sideBar">
-          Hello
-        </div>
-        <div class="tableContainer">
-          <Table className="table" id="table">
-            { someData.map((ub) => {
-                return (<Tr>
-                          <Td column="Ref" key={ ub.key }>
-                            { ub.Ref }
-                          </Td>
-                          <Td column="Status" key={ ub.key }>
-                            { ub.Status }
-                          </Td>
-                          <Td column="Date" key={ ub.key }>
-                            { ub.Date }
-                          </Td>
-                          <Td column="Name">
-                            <a href="#UserProfile">
-                              { ub.Name }
-                            </a>
-                          </Td>
-                          <Td column="Start" key={ ub.key }>
-                            { ub.Start }
-                          </Td>
-                          <Td column="Hours" key={ ub.key }>
-                            { ub.Hours }
-                          </Td>
-                          <Td column="Location" key={ ub.key }>
-                            { ub.Location }
-                          </Td>
-                          <Td column="Rating" key={ ub.key }>
-                            { ub.Rating }
-                          </Td>
-                          <Td column="" key={ ub.key }>
-                          </Td>
-                        </Tr>)
-              }) }
-          </Table>
-        </div>
-      </div>
+    const selectRow = {
+      mode: 'checkbox',
+      columnWidth: '120px'
+    };
+
+    return ( <div className="Container">
+               <BootstrapTable data={ someData } striped={ true } hover={ true } selectRow={ selectRow }>
+                 <TableHeaderColumn dataField="Ref" dataAlign="center" dataSort={ true } selectRow={ selectRow }> Ref
+                 </TableHeaderColumn>
+                 <TableHeaderColumn dataField="key" isKey={ true } dataSort={ true } width='200px'> ID
+                 </TableHeaderColumn>
+                 <TableHeaderColumn dataField="Name" dataSort={ true } width='200px'> Name
+                 </TableHeaderColumn>
+                 <TableHeaderColumn dataField="Rating" width='200px' dataSort={ true }> Rating
+                 </TableHeaderColumn>
+               </BootstrapTable>
+             </div>
       );
   }
 }
