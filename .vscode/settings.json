@@ -1,0 +1,18 @@
+{
+
+    "editor.formatOnSave": true,
+    "react.beautify.onSave": true,
+    "react.beautify.formatter": "esformatter",
+    "files.exclude": {
+        "node_modules": true,
+        "android": true,
+        "coverage": true,
+        "ios": true,
+        "yarn.lock": true,
+        ".babelrc": true,
+        ".git*": true,
+        ".buckconfig": true,
+        ".flowconfig": true,
+        ".watchmanconfig": true
+    }
+}
